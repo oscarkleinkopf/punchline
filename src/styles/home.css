@@ -12,7 +12,7 @@
   inset: 0;
   background:
     linear-gradient(120deg, rgba(15, 19, 26, 0.55) 0%, rgba(15, 19, 26, 0.78) 55%, rgba(15, 19, 26, 0.92) 100%),
-    url('/assets/images/street.svg') center/cover no-repeat;
+    url('/assets/images/hero-stage.svg') center/cover no-repeat;
   z-index: 0;
 }
 
@@ -65,11 +65,12 @@
 .hero__brand {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(4.2rem, 16vw, 9rem);
+  font-size: clamp(3.1rem, 14vw, 9rem);
   line-height: 0.85;
   letter-spacing: -0.05em;
   margin: 0 0 1rem;
   animation: rise 0.8s var(--ease-out) both;
+  overflow-wrap: anywhere;
 }
 
 .hero__brand span {
@@ -108,5 +109,20 @@
 
   .hero__nav {
     padding: 1rem;
+  }
+
+  .hero__brand {
+    font-size: min(12.5vw, 3.1rem);
+    white-space: nowrap;
+    max-width: 100%;
+  }
+
+  .hero__cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero__cta .btn {
+    width: 100%;
   }
 }

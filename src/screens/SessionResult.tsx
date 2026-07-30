@@ -1,4 +1,3 @@
-import { useMemo } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import {
   loadSessions,
@@ -10,8 +9,7 @@ import {
 export function SessionResult() {
   const location = useLocation()
   const lastSession = (location.state as { lastSession?: SessionMetrics } | null)?.lastSession
-
-  const sessions = useMemo(() => loadSessions(), [lastSession?.id])
+  const sessions = loadSessions()
   const focus = lastSession ?? sessions[0] ?? null
 
   return (
