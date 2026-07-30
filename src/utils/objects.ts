@@ -1,3 +1,5 @@
+import { assetUrl } from './assetUrl'
+
 export interface ObjectStimulus {
   id: string
   label: string
@@ -5,14 +7,14 @@ export interface ObjectStimulus {
 }
 
 export const OBJECTS: ObjectStimulus[] = [
-  { id: 'mic', label: 'Micrófono', src: '/assets/images/mic.svg' },
-  { id: 'crown', label: 'Corona', src: '/assets/images/crown.svg' },
-  { id: 'chain', label: 'Cadena', src: '/assets/images/chain.svg' },
-  { id: 'mirror', label: 'Espejo', src: '/assets/images/mirror.svg' },
-  { id: 'clock', label: 'Reloj', src: '/assets/images/clock.svg' },
-  { id: 'fire', label: 'Fuego', src: '/assets/images/fire.svg' },
-  { id: 'mask', label: 'Máscara', src: '/assets/images/mask.svg' },
-  { id: 'street', label: 'Calle', src: '/assets/images/street.svg' },
+  { id: 'mic', label: 'Micrófono', src: assetUrl('assets/images/mic.svg') },
+  { id: 'crown', label: 'Corona', src: assetUrl('assets/images/crown.svg') },
+  { id: 'chain', label: 'Cadena', src: assetUrl('assets/images/chain.svg') },
+  { id: 'mirror', label: 'Espejo', src: assetUrl('assets/images/mirror.svg') },
+  { id: 'clock', label: 'Reloj', src: assetUrl('assets/images/clock.svg') },
+  { id: 'fire', label: 'Fuego', src: assetUrl('assets/images/fire.svg') },
+  { id: 'mask', label: 'Máscara', src: assetUrl('assets/images/mask.svg') },
+  { id: 'street', label: 'Calle', src: assetUrl('assets/images/street.svg') },
 ]
 
 export function pickObject(excludeId?: string): ObjectStimulus {

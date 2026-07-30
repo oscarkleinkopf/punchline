@@ -2,12 +2,15 @@
 
 Gimnasio mental y estudio interactivo para freestylers. Entrena agilidad, narrativa y flow con estímulos en vivo, beats adaptativos y grabación sobre instrumental.
 
+**Live:** [https://oscarkleinkopf.github.io/punchline/](https://oscarkleinkopf.github.io/punchline/)
+
 ## Stack
 
 - **Vite + React + TypeScript**
 - **React Router** (SPA)
 - **Web Audio API** + **MediaRecorder**
-- **Netlify** (`@netlify/vite-plugin`, SPA redirect)
+- **GitHub Pages** (hosting)
+- **Netlify** plugin retained for optional local Netlify primitives
 
 ## Desarrollo
 
@@ -16,12 +19,14 @@ npm install
 npm run dev
 ```
 
-Abre la URL local de Vite. El plugin de Netlify deja disponibles primitivas de la plataforma en local.
+Abre la URL local de Vite (`base` de producción es `/punchline/` para GitHub Pages).
 
 ```bash
 npm run build
 npm run preview
 ```
+
+`postbuild` copia `dist/index.html` → `dist/404.html` para el fallback SPA en Pages.
 
 ## Funciones del MVP
 
@@ -45,16 +50,21 @@ punchline/
 │   ├── services/       # audioEngine, stimuliEngine, recorder
 │   ├── styles/
 │   └── utils/
+├── .github/workflows/deploy-pages.yml
 ├── netlify.toml
 └── package.json
 ```
 
+## Deploy (GitHub Pages)
+
+Cada push a `main` ejecuta el workflow **Deploy GitHub Pages**.
+
+1. En el repo: **Settings → Pages → Source: GitHub Actions**
+2. Tras el primer deploy: [https://oscarkleinkopf.github.io/punchline/](https://oscarkleinkopf.github.io/punchline/)
+
+Micrófono y grabación requieren HTTPS (GitHub Pages ya lo ofrece) o `localhost` en desarrollo.
+
 ## Notas
 
 - Los beats incluidos son loops sintéticos de placeholder; sustituye los WAV en `public/assets/beats/` y actualiza `src/utils/beats.ts`.
-- Micrófono y grabación requieren HTTPS en producción (o `localhost` en desarrollo).
 - Fuera del MVP: STT / análisis de rimas, export a Reels/TikTok, cuentas de usuario.
-
-## Deploy (Netlify)
-
-Build: `npm run build` · Publish: `dist` · Redirect SPA configurado en `netlify.toml`.

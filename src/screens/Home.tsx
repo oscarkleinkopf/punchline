@@ -1,10 +1,15 @@
 import { Link } from 'react-router-dom'
+import { assetUrl } from '../utils/assetUrl'
 import '../styles/home.css'
 
 export function Home() {
+  const heroBg = {
+    ['--hero-bg-image' as string]: `url('${assetUrl('assets/images/hero-stage.svg')}')`,
+  }
+
   return (
     <section className="hero">
-      <div className="hero__bg" aria-hidden="true" />
+      <div className="hero__bg" aria-hidden="true" style={heroBg} />
       <nav className="hero__nav" aria-label="Accesos">
         <Link to="/entrenar">Entrenar</Link>
         <Link to="/estudio">Estudio</Link>

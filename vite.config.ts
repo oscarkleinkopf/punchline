@@ -3,5 +3,6 @@ import react from '@vitejs/plugin-react'
 import netlify from '@netlify/vite-plugin'
 
 export default defineConfig({
+  base: '/punchline/',
   plugins: [react(), netlify()],
 })

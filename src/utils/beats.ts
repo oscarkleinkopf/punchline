@@ -1,3 +1,5 @@
+import { assetUrl } from './assetUrl'
+
 export type Genre = 'boom-bap' | 'trap' | 'drill' | 'reggaeton'
 
 export interface Beat {
@@ -21,56 +23,56 @@ export const BEATS: Beat[] = [
     title: 'Cemento Viejo',
     genre: 'boom-bap',
     bpm: 90,
-    src: '/assets/beats/boom-bap-90.wav',
+    src: assetUrl('assets/beats/boom-bap-90.wav'),
   },
   {
     id: 'boom-bap-95',
     title: 'Cinta Marrón',
     genre: 'boom-bap',
     bpm: 95,
-    src: '/assets/beats/boom-bap-95.wav',
+    src: assetUrl('assets/beats/boom-bap-95.wav'),
   },
   {
     id: 'trap-140',
     title: 'Neón Bajo',
     genre: 'trap',
     bpm: 140,
-    src: '/assets/beats/trap-140.wav',
+    src: assetUrl('assets/beats/trap-140.wav'),
   },
   {
     id: 'trap-150',
     title: 'Humo Digital',
     genre: 'trap',
     bpm: 150,
-    src: '/assets/beats/trap-150.wav',
+    src: assetUrl('assets/beats/trap-150.wav'),
   },
   {
     id: 'drill-140',
     title: 'Filo Frío',
     genre: 'drill',
     bpm: 140,
-    src: '/assets/beats/drill-140.wav',
+    src: assetUrl('assets/beats/drill-140.wav'),
   },
   {
     id: 'drill-145',
     title: 'Calle Norte',
     genre: 'drill',
     bpm: 145,
-    src: '/assets/beats/drill-145.wav',
+    src: assetUrl('assets/beats/drill-145.wav'),
   },
   {
     id: 'reggaeton-95',
     title: 'DemBow Sala',
     genre: 'reggaeton',
     bpm: 95,
-    src: '/assets/beats/reggaeton-95.wav',
+    src: assetUrl('assets/beats/reggaeton-95.wav'),
   },
   {
     id: 'reggaeton-100',
     title: 'Patio Tropical',
     genre: 'reggaeton',
     bpm: 100,
-    src: '/assets/beats/reggaeton-100.wav',
+    src: assetUrl('assets/beats/reggaeton-100.wav'),
   },
 ]
 
