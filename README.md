@@ -4,6 +4,8 @@ Gimnasio mental y estudio interactivo para freestylers. Entrena agilidad, narrat
 
 **Live:** [https://oscarkleinkopf.github.io/punchline/](https://oscarkleinkopf.github.io/punchline/)
 
+> Si la app no carga, en el repo ve a **Settings → Pages** y elige Branch **`gh-pages`** / root (o Source: **GitHub Actions**).
+
 ## Stack
 
 - **Vite + React + TypeScript**
