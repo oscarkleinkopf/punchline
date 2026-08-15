@@ -1,4 +1,14 @@
+import { pruneTakes } from './takes'
+
 export type TrainingMode = 'words' | 'themes' | 'objects' | 'free'
+
+export interface StimulusRecord {
+  kind: 'word' | 'theme' | 'object'
+  value: string
+  offsetMs: number
+  objectSrc?: string
+  objectLabel?: string
+}
 
 export interface SessionMetrics {
   id: string
@@ -10,6 +20,8 @@ export interface SessionMetrics {
   intervalSec?: number
   difficulty?: 'easy' | 'hard' | 'custom'
   notes?: string
+  stimuli?: StimulusRecord[]
+  hasTake?: boolean
 }
 
 const STORAGE_KEY = 'punchline.sessions'
@@ -18,7 +30,9 @@ const MAX_SESSIONS = 20
 export function saveSession(session: SessionMetrics): void {
   const all = loadSessions()
   all.unshift(session)
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(all.slice(0, MAX_SESSIONS)))
+  const kept = all.slice(0, MAX_SESSIONS)
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(kept))
+  void pruneTakes(kept.filter((s) => s.hasTake).map((s) => s.id))
 }
 
 export function loadSessions(): SessionMetrics[] {
@@ -30,6 +44,10 @@ export function loadSessions(): SessionMetrics[] {
   } catch {
     return []
   }
+}
+
+export function getSession(id: string): SessionMetrics | null {
+  return loadSessions().find((s) => s.id === id) ?? null
 }
 
 export function createSessionId(): string {
@@ -52,4 +70,11 @@ export function modeLabel(mode: TrainingMode): string {
 export function pacePerMinute(stimuliShown: number, durationSec: number): number {
   if (durationSec <= 0) return 0
   return Math.round((stimuliShown / durationSec) * 60)
+}
+
+export function formatOffset(ms: number): string {
+  const total = Math.max(0, Math.floor(ms / 1000))
+  const m = Math.floor(total / 60)
+  const s = total % 60
+  return `${m}:${s.toString().padStart(2, '0')}`
 }

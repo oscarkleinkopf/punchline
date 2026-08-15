@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { SessionReplay } from '../components/SessionReplay'
 import {
   loadSessions,
   modeLabel,
@@ -10,18 +12,23 @@ export function SessionResult() {
   const location = useLocation()
   const lastSession = (location.state as { lastSession?: SessionMetrics } | null)?.lastSession
   const sessions = loadSessions()
-  const focus = lastSession ?? sessions[0] ?? null
+  const [selectedId, setSelectedId] = useState<string | null>(lastSession?.id ?? sessions[0]?.id ?? null)
+  const focus =
+    sessions.find((s) => s.id === selectedId) ?? lastSession ?? sessions[0] ?? null
 
   return (
     <div className="page">
       <h1 className="page-title">{lastSession ? 'Sesión completa' : 'Historial'}</h1>
       <p className="page-lead">
-        Métricas locales de tus entrenamientos. Los datos se guardan en este dispositivo.
+        Replay local: tu take y las palabras del round se quedan en este dispositivo.
       </p>
 
       {focus ? (
         <>
-          <p className="section-label">Última sesión · {modeLabel(focus.mode)}</p>
+          <p className="section-label">
+            {lastSession && focus.id === lastSession.id ? 'Última sesión' : 'Sesión'} ·{' '}
+            {modeLabel(focus.mode)}
+          </p>
           <div className="metrics-grid">
             <div className="metric">
               <strong>{focus.durationSec}s</strong>
@@ -41,7 +48,12 @@ export function SessionResult() {
                 <span>Intervalo</span>
               </div>
             )}
+            <div className="metric">
+              <strong>{focus.hasTake ? 'Sí' : 'No'}</strong>
+              <span>Take</span>
+            </div>
           </div>
+          <SessionReplay session={focus} />
         </>
       ) : (
         <p style={{ color: 'var(--ink-muted)' }}>
@@ -66,11 +78,20 @@ export function SessionResult() {
           <ul className="history-list">
             {sessions.map((s) => (
               <li key={s.id}>
-                <strong>{modeLabel(s.mode)}</strong>
-                <span>
-                  {s.stimuliShown} estímulos · {s.durationSec}s ·{' '}
-                  {new Date(s.endedAt).toLocaleString('es')}
-                </span>
+                <button
+                  type="button"
+                  className={`history-pick${focus?.id === s.id ? ' history-pick--active' : ''}`}
+                  onClick={() => setSelectedId(s.id)}
+                >
+                  <strong>
+                    {modeLabel(s.mode)}
+                    {s.hasTake ? ' · take' : ''}
+                  </strong>
+                  <span>
+                    {s.stimuliShown} estímulos · {s.durationSec}s ·{' '}
+                    {new Date(s.endedAt).toLocaleString('es')}
+                  </span>
+                </button>
               </li>
             ))}
           </ul>
