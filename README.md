@@ -34,10 +34,10 @@ npm run preview
 
 | Área | Qué incluye |
 |------|-------------|
-| **Entrenar** | Palabras incrementales, temáticas/personajes, objetos/imágenes, minuto libre |
+| **Entrenar** | Palabras incrementales, temáticas/personajes, objetos/imágenes, minuto libre, grabación de voz |
 | **Estudio** | Biblioteca multigénero (Boom Bap, Trap, Drill, Reggaeton), filtro BPM, tempo en vivo |
 | **Grabación** | Voz sobre beat, volumen por pista, descarga WebM |
-| **Sesiones** | Métricas e historial en `localStorage` |
+| **Sesiones** | Replay del take + timeline de estímulos, métricas e historial local |
 
 ## Estructura
 
@@ -69,4 +69,5 @@ Micrófono y grabación requieren HTTPS (GitHub Pages ya lo ofrece) o `localhost
 ## Notas
 
 - Los beats incluidos son loops sintéticos de placeholder; sustituye los WAV en `public/assets/beats/` y actualiza `src/utils/beats.ts`.
+- El take de cada sesión se guarda en IndexedDB de este origen; el timeline va en `localStorage`.
 - Fuera del MVP: STT / análisis de rimas, export a Reels/TikTok, cuentas de usuario.

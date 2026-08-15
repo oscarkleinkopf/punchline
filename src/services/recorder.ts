@@ -15,6 +15,8 @@ class RecorderService {
   private state: RecorderState = 'idle'
   private micVolume = 1
   private listeners = new Set<() => void>()
+  private stopPromise: Promise<Blob | null> | null = null
+  private resolveStop: ((blob: Blob | null) => void) | null = null
 
   subscribe(fn: () => void): () => void {
     this.listeners.add(fn)
@@ -31,6 +33,10 @@ class RecorderService {
 
   getUrl(): string | null {
     return this.url
+  }
+
+  getBlob(): Blob | null {
+    return this.blob
   }
 
   getMicVolume(): number {
@@ -87,12 +93,16 @@ class RecorderService {
     }
 
     this.mediaRecorder.onstop = () => {
-      this.blob = new Blob(this.chunks, { type: this.mediaRecorder?.mimeType || 'audio/webm' })
+      const mime = this.mediaRecorder?.mimeType || 'audio/webm'
+      this.blob = new Blob(this.chunks, { type: mime })
       if (this.url) URL.revokeObjectURL(this.url)
       this.url = URL.createObjectURL(this.blob)
       this.state = 'ready'
       this.cleanupGraph()
       this.emit()
+      this.resolveStop?.(this.blob)
+      this.resolveStop = null
+      this.stopPromise = null
     }
 
     this.mediaRecorder.start(200)
@@ -100,10 +110,21 @@ class RecorderService {
     this.emit()
   }
 
-  stop(): void {
-    if (this.mediaRecorder && this.state === 'recording') {
-      this.mediaRecorder.stop()
+  stop(): Promise<Blob | null> {
+    if (this.stopPromise) return this.stopPromise
+    if (!this.mediaRecorder || this.state !== 'recording') {
+      return Promise.resolve(this.blob)
     }
+    this.stopPromise = new Promise((resolve) => {
+      this.resolveStop = resolve
+      try {
+        this.mediaRecorder?.requestData()
+      } catch {
+        /* some browsers throw if no data yet */
+      }
+      this.mediaRecorder?.stop()
+    })
+    return this.stopPromise
   }
 
   clear(): void {
