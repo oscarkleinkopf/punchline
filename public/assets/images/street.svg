@@ -1,12 +1,61 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" fill="none">
   <defs>
-    <radialGradient id="g" cx="30%" cy="25%" r="80%">
-      <stop offset="0%" stop-color="#1a1a1a"/>
-      <stop offset="100%" stop-color="#0a0a0a"/>
+    <radialGradient id="streetBg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#141c26"/>
+      <stop offset="50%" stop-color="#080e14"/>
+      <stop offset="100%" stop-color="#020406"/>
     </radialGradient>
+    <radialGradient id="streetAura" cx="50%" cy="45%" r="45%">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.3"/>
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#00f0ff" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="gridStreet" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M 25 0 L 0 0 0 25" fill="none" stroke="#00f0ff" stroke-width="0.5" stroke-opacity="0.08"/>
+    </pattern>
   </defs>
-  <rect width="800" height="800" fill="url(#g)"/>
-  <circle cx="400" cy="360" r="160" fill="none" stroke="#e9c46a" stroke-width="10" opacity="0.9"/>
-  <circle cx="400" cy="360" r="70" fill="#e9c46a" opacity="0.85"/>
-  <text x="400" y="620" text-anchor="middle" font-family="Georgia, serif" font-size="56" fill="#f5f0e8">Calle</text>
+
+  <rect width="800" height="800" fill="url(#streetBg)"/>
+  <rect width="800" height="800" fill="url(#gridStreet)"/>
+  <circle cx="400" cy="380" r="320" fill="url(#streetAura)"/>
+
+  <!-- Geometric Frame -->
+  <rect x="40" y="40" width="720" height="720" fill="none" stroke="#00f0ff" stroke-width="1" stroke-opacity="0.2"/>
+  <path d="M 40 70 L 40 40 70 40 M 730 40 L 760 40 760 70 M 760 730 L 760 760 730 760 M 70 760 L 40 760 40 730" stroke="#00f0ff" stroke-width="3" stroke-linecap="square"/>
+
+  <!-- Infinite Vanishing Point (Punto de Fuga: 400, 240) -->
+  <!-- Horizon Line -->
+  <line x1="80" y1="240" x2="720" y2="240" stroke="#fbbf24" stroke-width="1.5" stroke-opacity="0.6"/>
+
+  <!-- Street Vanishing Convergence Vectors -->
+  <polygon points="400,240 700,580 100,580" fill="#08141f" stroke="#00f0ff" stroke-width="2.5"/>
+
+  <!-- Transverse Perspective Steps (Asphalt Coordinate Grid) -->
+  <line x1="375" y1="270" x2="425" y2="270" stroke="#00f0ff" stroke-width="1" stroke-opacity="0.3"/>
+  <line x1="345" y1="310" x2="455" y2="310" stroke="#00f0ff" stroke-width="1.2" stroke-opacity="0.35"/>
+  <line x1="300" y1="370" x2="500" y2="370" stroke="#00f0ff" stroke-width="1.5" stroke-opacity="0.4"/>
+  <line x1="240" y1="450" x2="560" y2="450" stroke="#00f0ff" stroke-width="1.8" stroke-opacity="0.5"/>
+  <line x1="170" y1="540" x2="630" y2="540" stroke="#00f0ff" stroke-width="2" stroke-opacity="0.6"/>
+
+  <!-- Center Road Divisor Line (Golden dashed vector) -->
+  <line x1="400" y1="240" x2="400" y2="580" stroke="#fbbf24" stroke-width="3" stroke-dasharray="24 16"/>
+
+  <!-- Cybernetic Geometric Wireframe Buildings on Sides -->
+  <!-- Left Buildings -->
+  <polygon points="100,580 200,420 200,200 100,180" fill="#0c1724" stroke="#00f0ff" stroke-width="1.5" stroke-opacity="0.5"/>
+  <polygon points="200,420 300,320 300,210 200,200" fill="#08101a" stroke="#00f0ff" stroke-width="1.2" stroke-opacity="0.4"/>
+  <!-- Right Buildings -->
+  <polygon points="700,580 600,420 600,200 700,180" fill="#0c1724" stroke="#00f0ff" stroke-width="1.5" stroke-opacity="0.5"/>
+  <polygon points="600,420 500,320 500,210 600,200" fill="#08101a" stroke="#00f0ff" stroke-width="1.2" stroke-opacity="0.4"/>
+
+  <!-- Vanishing Point Star -->
+  <circle cx="400" cy="240" r="6" fill="#fbbf24"/>
+  <circle cx="400" cy="240" r="14" fill="none" stroke="#00f0ff" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+  <!-- Annotation -->
+  <g font-family="monospace" font-size="14" fill="#00f0ff" text-anchor="middle" letter-spacing="2">
+    <text x="400" y="660" fill="#fbbf24" font-weight="bold" font-size="28" letter-spacing="4">CALLE</text>
+    <text x="400" y="695" fill="#38bdf8" fill-opacity="0.8">[ PLANO URBANO · PUNTO DE FUGA CARTESIANO ]</text>
+    <text x="400" y="720" fill="#00f0ff" fill-opacity="0.4" font-size="11">MATRIZ DE ASFALTO // ORIGEN DEL FLOW</text>
+  </g>
 </svg>

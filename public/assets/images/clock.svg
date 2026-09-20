@@ -1,12 +1,72 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" fill="none">
   <defs>
-    <radialGradient id="g" cx="30%" cy="25%" r="80%">
-      <stop offset="0%" stop-color="#1a1a1a"/>
-      <stop offset="100%" stop-color="#0a0a0a"/>
+    <radialGradient id="clockBg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#14182b"/>
+      <stop offset="60%" stop-color="#090b14"/>
+      <stop offset="100%" stop-color="#030408"/>
     </radialGradient>
+    <radialGradient id="violetGlow" cx="50%" cy="45%" r="45%">
+      <stop offset="0%" stop-color="#818cf8" stop-opacity="0.3"/>
+      <stop offset="60%" stop-color="#38bdf8" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#00f0ff" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="gridP" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M 25 0 L 0 0 0 25" fill="none" stroke="#38bdf8" stroke-width="0.5" stroke-opacity="0.08"/>
+    </pattern>
   </defs>
-  <rect width="800" height="800" fill="url(#g)"/>
-  <circle cx="400" cy="360" r="160" fill="none" stroke="#f4a261" stroke-width="10" opacity="0.9"/>
-  <circle cx="400" cy="360" r="70" fill="#f4a261" opacity="0.85"/>
-  <text x="400" y="620" text-anchor="middle" font-family="Georgia, serif" font-size="56" fill="#f5f0e8">Reloj</text>
+
+  <rect width="800" height="800" fill="url(#clockBg)"/>
+  <rect width="800" height="800" fill="url(#gridP)"/>
+  <circle cx="400" cy="380" r="320" fill="url(#violetGlow)"/>
+
+  <!-- Geometric Frame -->
+  <rect x="40" y="40" width="720" height="720" fill="none" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.2"/>
+  <path d="M 40 70 L 40 40 70 40 M 730 40 L 760 40 760 70 M 760 730 L 760 760 730 760 M 70 760 L 40 760 40 730" stroke="#38bdf8" stroke-width="3" stroke-linecap="square"/>
+
+  <!-- Concentric Orbital Dial Rings -->
+  <circle cx="400" cy="360" r="220" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.25"/>
+  <circle cx="400" cy="360" r="190" stroke="#fbbf24" stroke-width="1.5" stroke-opacity="0.4" stroke-dasharray="12 8"/>
+  <circle cx="400" cy="360" r="160" stroke="#818cf8" stroke-width="1" stroke-opacity="0.3"/>
+  <circle cx="400" cy="360" r="120" stroke="#38bdf8" stroke-width="1.8" stroke-opacity="0.4"/>
+
+  <!-- 12-Segment Radial Mathematical Graduations -->
+  <g stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-opacity="0.6">
+    <line x1="400" y1="145" x2="400" y2="165"/>
+    <line x1="400" y1="555" x2="400" y2="575"/>
+    <line x1="185" y1="360" x2="205" y2="360"/>
+    <line x1="595" y1="360" x2="615" y2="360"/>
+
+    <line x1="248" y1="208" x2="262" y2="222"/>
+    <line x1="538" y1="498" x2="552" y2="512"/>
+    <line x1="248" y1="512" x2="262" y2="498"/>
+    <line x1="538" y1="222" x2="552" y2="208"/>
+  </g>
+
+  <!-- Inscribed 4D Teseracto (Time Geometry) -->
+  <g stroke="#818cf8" stroke-width="1.5" stroke-opacity="0.6" fill="none">
+    <polygon points="320,280 480,280 480,440 320,440"/>
+    <polygon points="350,310 450,310 450,410 350,410" stroke="#fbbf24" stroke-opacity="0.8"/>
+    <line x1="320" y1="280" x2="350" y2="310"/>
+    <line x1="480" y1="280" x2="450" y2="310"/>
+    <line x1="480" y1="440" x2="450" y2="410"/>
+    <line x1="320" y1="440" x2="350" y2="410"/>
+  </g>
+
+  <!-- Precision Vector Hands (Clock Hands as Vectors) -->
+  <!-- Hour Vector (Towards 2 o'clock) -->
+  <line x1="400" y1="360" x2="480" y2="280" stroke="#fbbf24" stroke-width="4" stroke-linecap="round"/>
+  <!-- Minute Vector (Towards 12 o'clock, 60s punchline) -->
+  <line x1="400" y1="360" x2="400" y2="210" stroke="#00f0ff" stroke-width="3" stroke-linecap="round"/>
+  <!-- Second Vector (High precision pulse) -->
+  <line x1="400" y1="380" x2="400" y2="180" stroke="#f43f5e" stroke-width="1.5" stroke-dasharray="8 4"/>
+
+  <circle cx="400" cy="360" r="8" fill="#fbbf24"/>
+  <circle cx="400" cy="360" r="3" fill="#ffffff"/>
+
+  <!-- Annotation -->
+  <g font-family="monospace" font-size="14" fill="#38bdf8" text-anchor="middle" letter-spacing="2">
+    <text x="400" y="660" fill="#fbbf24" font-weight="bold" font-size="28" letter-spacing="4">RELOJ</text>
+    <text x="400" y="695" fill="#818cf8" fill-opacity="0.8">[ COORDENADA TEMPORAL · CRONOMETRÍA Δt ]</text>
+    <text x="400" y="720" fill="#38bdf8" fill-opacity="0.4" font-size="11">60 SEGUNDOS // MÉTRICA NO EUCLIDIANA</text>
+  </g>
 </svg>

@@ -1,4 +1,11 @@
 const ABSTRACT = [
+  'Axioma vs Paradoja',
+  'Infinito vs Cero',
+  'Geometría vs Azar',
+  'Consciencia vs Materia',
+  'Entropía vs Equilibrio',
+  'Dimensión vs Vacío',
+  'Determinismo vs Libertad',
   'Cine vs Literatura',
   'Pasado vs Futuro',
   'Amor vs Odio',
@@ -11,9 +18,15 @@ const ABSTRACT = [
   'Libertad vs Destino',
   'Tiempo vs Memoria',
   'Verdad vs Mentira',
+  'Razón vs Instinto',
+  'Causa vs Efecto',
 ]
 
 const CHARACTERS = [
+  'Filósofo vs Tirano',
+  'Arquitecto vs Demoledor',
+  'Alquimista vs Astrónomo',
+  'Oráculo vs Hereje',
   'Héroe vs Villano',
   'Rey vs Bufón',
   'Detective vs Criminal',

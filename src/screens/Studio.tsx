@@ -4,9 +4,9 @@ import { RecorderControls } from '../components/RecorderControls'
 export function Studio() {
   return (
     <div className="page">
-      <h1 className="page-title">Estudio</h1>
+      <h1 className="page-title">Estudio Acústico & Grabación</h1>
       <p className="page-lead">
-        Elige un instrumental, ajusta el tempo en tiempo real y graba tu flow sobre el beat.
+        Calibra frecuencias instrumentales, modula el BPM en tiempo real y registra tu toma vocal sobre el plano rítmico.
       </p>
 
       <div className="studio-panel">

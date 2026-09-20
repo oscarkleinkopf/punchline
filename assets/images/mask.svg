@@ -1,12 +1,63 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" fill="none">
   <defs>
-    <radialGradient id="g" cx="30%" cy="25%" r="80%">
-      <stop offset="0%" stop-color="#1a1a1a"/>
-      <stop offset="100%" stop-color="#0a0a0a"/>
+    <radialGradient id="maskBg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#161324"/>
+      <stop offset="50%" stop-color="#0b0a13"/>
+      <stop offset="100%" stop-color="#030205"/>
     </radialGradient>
+    <radialGradient id="maskAura" cx="50%" cy="45%" r="45%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.3"/>
+      <stop offset="50%" stop-color="#00f0ff" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="gridMask" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M 25 0 L 0 0 0 25" fill="none" stroke="#a855f7" stroke-width="0.5" stroke-opacity="0.08"/>
+    </pattern>
   </defs>
-  <rect width="800" height="800" fill="url(#g)"/>
-  <circle cx="400" cy="360" r="160" fill="none" stroke="#2a9d8f" stroke-width="10" opacity="0.9"/>
-  <circle cx="400" cy="360" r="70" fill="#2a9d8f" opacity="0.85"/>
-  <text x="400" y="620" text-anchor="middle" font-family="Georgia, serif" font-size="56" fill="#f5f0e8">Máscara</text>
+
+  <rect width="800" height="800" fill="url(#maskBg)"/>
+  <rect width="800" height="800" fill="url(#gridMask)"/>
+  <circle cx="400" cy="380" r="320" fill="url(#maskAura)"/>
+
+  <!-- Geometric Frame -->
+  <rect x="40" y="40" width="720" height="720" fill="none" stroke="#a855f7" stroke-width="1" stroke-opacity="0.2"/>
+  <path d="M 40 70 L 40 40 70 40 M 730 40 L 760 40 760 70 M 760 730 L 760 760 730 760 M 70 760 L 40 760 40 730" stroke="#a855f7" stroke-width="3" stroke-linecap="square"/>
+
+  <!-- Duality Axis: Tesis vs Antítesis (x = 400) -->
+  <line x1="400" y1="140" x2="400" y2="580" stroke="#fbbf24" stroke-width="2" stroke-dasharray="8 6"/>
+
+  <!-- Geometric Polyhedral Face (Sacred Polygon Mesh) -->
+  <!-- Outer Face Contour (Polygon) -->
+  <polygon points="400,160 520,220 560,360 510,480 400,560 290,480 240,360 280,220" fill="#0d0a18" stroke="#a855f7" stroke-width="3"/>
+
+  <!-- Left Half (Cyan: Lógica / Análisis / Razón) -->
+  <polygon points="400,160 280,220 340,310 400,280" fill="#071d2b" stroke="#00f0ff" stroke-width="1.8"/>
+  <polygon points="280,220 240,360 330,380 340,310" fill="#0b293d" stroke="#00f0ff" stroke-width="1.8"/>
+  <polygon points="340,310 330,380 400,420 400,280" fill="#061722" stroke="#00f0ff" stroke-width="1.8"/>
+  <polygon points="240,360 290,480 350,460 330,380" fill="#092131" stroke="#00f0ff" stroke-width="1.8"/>
+  <polygon points="330,380 350,460 400,560 400,420" fill="#05121c" stroke="#00f0ff" stroke-width="1.8"/>
+  <!-- Left Eye Vector (Cyan Precision) -->
+  <polygon points="300,340 370,330 350,360" fill="#00f0ff" stroke="#ffffff" stroke-width="1.5"/>
+
+  <!-- Right Half (Magenta/Gold: Emoción / Fuego / Intuición) -->
+  <polygon points="400,160 520,220 460,310 400,280" fill="#240c1e" stroke="#fbbf24" stroke-width="1.8"/>
+  <polygon points="520,220 560,360 470,380 460,310" fill="#36122d" stroke="#fbbf24" stroke-width="1.8"/>
+  <polygon points="460,310 470,380 400,420 400,280" fill="#1f091a" stroke="#fbbf24" stroke-width="1.8"/>
+  <polygon points="560,360 510,480 450,460 470,380" fill="#2d0f26" stroke="#fbbf24" stroke-width="1.8"/>
+  <polygon points="470,380 450,460 400,560 400,420" fill="#180714" stroke="#fbbf24" stroke-width="1.8"/>
+  <!-- Right Eye Vector (Gold Flame) -->
+  <polygon points="500,340 430,330 450,360" fill="#fbbf24" stroke="#ffffff" stroke-width="1.5"/>
+
+  <!-- Inscribed Vertices -->
+  <circle cx="400" cy="160" r="6" fill="#ffffff"/>
+  <circle cx="400" cy="280" r="5" fill="#00f0ff"/>
+  <circle cx="400" cy="420" r="5" fill="#fbbf24"/>
+  <circle cx="400" cy="560" r="6" fill="#ffffff"/>
+
+  <!-- Annotation -->
+  <g font-family="monospace" font-size="14" fill="#a855f7" text-anchor="middle" letter-spacing="2">
+    <text x="400" y="660" fill="#fbbf24" font-weight="bold" font-size="28" letter-spacing="4">MÁSCARA</text>
+    <text x="400" y="695" fill="#c084fc" fill-opacity="0.8">[ DUALIDAD PSÍQUICA · TESIS Y ANTÍTESIS ]</text>
+    <text x="400" y="720" fill="#00f0ff" fill-opacity="0.4" font-size="11">SIMETRÍA FACIAL // EGO VS CONSCIENCIA</text>
+  </g>
 </svg>

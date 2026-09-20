@@ -119,19 +119,19 @@ export function Training() {
 
   return (
     <div className="page">
-      <h1 className="page-title">Entrenamiento</h1>
+      <h1 className="page-title">Demostración Lírica</h1>
       <p className="page-lead">
-        Elige un estímulo en vivo. Entrena agilidad, narrativa o respuesta bajo presión.
+        Postulados en tiempo real. Entrena tu cálculo métrico, antinomias dialécticas y reflejo bajo presión analítica.
       </p>
 
-      <p className="section-label">Modo</p>
+      <p className="section-label">Sistema de Estímulo</p>
       <div className="control-row">
         {(
           [
-            ['words', 'Palabras'],
-            ['themes', 'Temáticas'],
-            ['objects', 'Objetos'],
-            ['free', 'Minuto libre'],
+            ['words', 'Axiomas (Palabras)'],
+            ['themes', 'Antinomias (Temáticas)'],
+            ['objects', 'Vectores (Objetos)'],
+            ['free', 'Minuto Libre (60s)'],
           ] as const
         ).map(([id, label]) => (
           <button
@@ -148,7 +148,7 @@ export function Training() {
 
       {mode !== 'free' && (
         <>
-          <p className="section-label">Velocidad</p>
+          <p className="section-label">Cadencia de Intervalo</p>
           <div className="control-row">
             <button
               type="button"
@@ -156,7 +156,7 @@ export function Training() {
               disabled={running}
               onClick={() => setDifficulty('easy')}
             >
-              Easy · 10s
+              Postulado Base · 10s
             </button>
             <button
               type="button"
@@ -164,7 +164,7 @@ export function Training() {
               disabled={running}
               onClick={() => setDifficulty('hard')}
             >
-              Hard · 2.5s
+              Límite Hiperbólico · 2.5s
             </button>
             <button
               type="button"
@@ -172,7 +172,7 @@ export function Training() {
               disabled={running}
               onClick={() => setDifficulty('custom')}
             >
-              Custom
+              Variable Δt
             </button>
             {difficulty === 'custom' && (
               <div className="field">
@@ -193,19 +193,19 @@ export function Training() {
         </>
       )}
 
-      <div className="control-row">
+      <div className="control-row" style={{ alignItems: 'center' }}>
         {!running ? (
           <button type="button" className="btn btn--primary" onClick={start}>
-            Iniciar
+            Iniciar Demostración
           </button>
         ) : (
           <button type="button" className="btn btn--danger" onClick={stop}>
-            Terminar sesión
+            Concluir (Q.E.D.)
           </button>
         )}
         {running && (
-          <span style={{ color: 'var(--ink-muted)', fontWeight: 600 }}>
-            {mode === 'free' ? 'Cronómetro' : `Estímulos: ${shown}`} · {elapsed}s
+          <span style={{ color: 'var(--accent-gold)', fontFamily: 'var(--font-mono)', fontSize: '0.9rem', fontWeight: 600 }}>
+            {mode === 'free' ? '[ CRONÓMETRO REGRESIVO ]' : `[ POSTULADOS: ${shown} ]`} · Δt = {elapsed}s
           </span>
         )}
       </div>
@@ -215,11 +215,11 @@ export function Training() {
           <Timer seconds={remaining} />
         </div>
       ) : (
-        <StimulusDisplay stimulus={stimulus} emptyLabel="Pulsa iniciar y suelta" />
+        <StimulusDisplay stimulus={stimulus} emptyLabel="Activa la demostración para proyectar estímulos" />
       )}
 
-      <div style={{ marginTop: '2rem' }}>
-        <p className="section-label">Beat opcional</p>
+      <div style={{ marginTop: '2.5rem' }}>
+        <p className="section-label">Frecuencia Instrumental (Base de Pulso)</p>
         <BeatPlayer compact />
       </div>
     </div>

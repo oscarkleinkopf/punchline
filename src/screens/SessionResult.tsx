@@ -14,61 +14,65 @@ export function SessionResult() {
 
   return (
     <div className="page">
-      <h1 className="page-title">{lastSession ? 'Sesión completa' : 'Historial'}</h1>
+      <h1 className="page-title">
+        {lastSession ? 'Q.E.D. · Demostración Concluida' : 'Registro de Demostraciones'}
+      </h1>
       <p className="page-lead">
-        Métricas locales de tus entrenamientos. Los datos se guardan en este dispositivo.
+        Cálculo de métricas líricas y rendimiento analítico. Todos los vectores de tus sesiones se preservan en este dispositivo.
       </p>
 
       {focus ? (
         <>
-          <p className="section-label">Última sesión · {modeLabel(focus.mode)}</p>
+          <p className="section-label">
+            Análisis de la Demostración · {modeLabel(focus.mode)}
+          </p>
           <div className="metrics-grid">
             <div className="metric">
               <strong>{focus.durationSec}s</strong>
-              <span>Duración</span>
+              <span>Δt Duración Total</span>
             </div>
             <div className="metric">
               <strong>{focus.stimuliShown}</strong>
-              <span>Estímulos</span>
+              <span>∑ Postulados Vistos</span>
             </div>
             <div className="metric">
               <strong>{pacePerMinute(focus.stimuliShown, focus.durationSec)}</strong>
-              <span>Ritmo / min</span>
+              <span>Cadencia / Minuto</span>
             </div>
             {focus.intervalSec != null && (
               <div className="metric">
                 <strong>{focus.intervalSec}s</strong>
-                <span>Intervalo</span>
+                <span>Intervalo Base</span>
               </div>
             )}
           </div>
         </>
       ) : (
-        <p style={{ color: 'var(--ink-muted)' }}>
-          Aún no hay sesiones. Completa un entrenamiento para ver métricas aquí.
+        <p style={{ color: 'var(--ink-muted)', fontStyle: 'italic' }}>
+          No se registran demostraciones previas. Completa una ronda para calcular tus métricas aquí.
         </p>
       )}
 
       <div className="control-row">
         <Link className="btn btn--primary" to="/entrenar">
-          Entrenar de nuevo
+          Iniciar Nueva Demostración
         </Link>
         <Link className="btn btn--ghost" to="/estudio">
-          Ir al estudio
+          Ir al Laboratorio de Estudio
         </Link>
       </div>
 
       {sessions.length > 0 && (
         <>
-          <p className="section-label" style={{ marginTop: '2rem' }}>
-            Historial reciente
+          <p className="section-label" style={{ marginTop: '2.5rem' }}>
+            Historial de Demostraciones Concluidas
           </p>
           <ul className="history-list">
             {sessions.map((s) => (
               <li key={s.id}>
                 <strong>{modeLabel(s.mode)}</strong>
                 <span>
-                  {s.stimuliShown} estímulos · {s.durationSec}s ·{' '}
+                  ∑ {s.stimuliShown} postulados · Δt: {s.durationSec}s ·{' '}
                   {new Date(s.endedAt).toLocaleString('es')}
                 </span>
               </li>

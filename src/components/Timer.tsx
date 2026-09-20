@@ -12,13 +12,16 @@ function formatTime(total: number): string {
 export function Timer({ seconds, warnBelow = 10 }: TimerProps) {
   const warn = seconds <= warnBelow
   return (
-    <div
-      className={`timer-ring${warn ? ' timer-ring--warn' : ''}`}
-      role="timer"
-      aria-live="polite"
-      aria-atomic="true"
-    >
-      {formatTime(seconds)}
+    <div className="timer-hud">
+      <span className="timer-label">[ CRONOMETRÍA VECTORIAL · Δt ]</span>
+      <div
+        className={`timer-ring${warn ? ' timer-ring--warn' : ''}`}
+        role="timer"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        {formatTime(seconds)}
+      </div>
     </div>
   )
 }

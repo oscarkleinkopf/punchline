@@ -1,12 +1,79 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" fill="none">
   <defs>
-    <radialGradient id="g" cx="30%" cy="25%" r="80%">
-      <stop offset="0%" stop-color="#1a1a1a"/>
-      <stop offset="100%" stop-color="#0a0a0a"/>
+    <radialGradient id="micBg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#0f192b"/>
+      <stop offset="60%" stop-color="#070b13"/>
+      <stop offset="100%" stop-color="#030508"/>
     </radialGradient>
+    <radialGradient id="cyanGlow" cx="50%" cy="40%" r="45%">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.3"/>
+      <stop offset="60%" stop-color="#00f0ff" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#00f0ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f0ff"/>
+      <stop offset="50%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde68a"/>
+      <stop offset="50%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <pattern id="gridPattern" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M 25 0 L 0 0 0 25" fill="none" stroke="#00f0ff" stroke-width="0.5" stroke-opacity="0.08"/>
+    </pattern>
   </defs>
-  <rect width="800" height="800" fill="url(#g)"/>
-  <circle cx="400" cy="360" r="160" fill="none" stroke="#e85d04" stroke-width="10" opacity="0.9"/>
-  <circle cx="400" cy="360" r="70" fill="#e85d04" opacity="0.85"/>
-  <text x="400" y="620" text-anchor="middle" font-family="Georgia, serif" font-size="56" fill="#f5f0e8">Micrófono</text>
+
+  <!-- Background -->
+  <rect width="800" height="800" fill="url(#micBg)"/>
+  <rect width="800" height="800" fill="url(#gridPattern)"/>
+  <circle cx="400" cy="380" r="320" fill="url(#cyanGlow)"/>
+
+  <!-- Geometric Coordinate Frame -->
+  <rect x="40" y="40" width="720" height="720" fill="none" stroke="#00f0ff" stroke-width="1" stroke-opacity="0.2"/>
+  <path d="M 40 70 L 40 40 70 40 M 730 40 L 760 40 760 70 M 760 730 L 760 760 730 760 M 70 760 L 40 760 40 730" stroke="#00f0ff" stroke-width="3" stroke-linecap="square"/>
+
+  <!-- Compass / Soundwave Radial Rings -->
+  <circle cx="400" cy="360" r="240" stroke="#00f0ff" stroke-width="1" stroke-opacity="0.15" stroke-dasharray="6 8"/>
+  <circle cx="400" cy="360" r="180" stroke="#fbbf24" stroke-width="1.5" stroke-opacity="0.25"/>
+  <circle cx="400" cy="360" r="130" stroke="#00f0ff" stroke-width="1.2" stroke-opacity="0.3" stroke-dasharray="12 6"/>
+
+  <!-- Golden Ratio Acoustic Waves -->
+  <path d="M 220 360 C 220 260, 300 200, 400 200 C 500 200, 580 260, 580 360" stroke="#00f0ff" stroke-width="2" stroke-opacity="0.4" fill="none" stroke-dasharray="4 6"/>
+  <path d="M 180 360 C 180 230, 280 150, 400 150 C 520 150, 620 230, 620 360" stroke="#fbbf24" stroke-width="1.5" stroke-opacity="0.3" fill="none"/>
+
+  <!-- Dynamic Sacred Geometry Microphone Vector -->
+  <!-- Capsule Head (Grille with faceted hexagonal wireframe) -->
+  <rect x="340" y="200" width="120" height="150" rx="60" fill="#0d1828" stroke="url(#metalGrad)" stroke-width="3"/>
+  <!-- Internal Acoustic Grid -->
+  <g stroke="#00f0ff" stroke-width="1" stroke-opacity="0.4">
+    <line x1="340" y1="260" x2="460" y2="260"/>
+    <line x1="340" y1="290" x2="460" y2="290"/>
+    <line x1="340" y1="320" x2="460" y2="320"/>
+    <line x1="370" y1="205" x2="370" y2="345"/>
+    <line x1="400" y1="200" x2="400" y2="350"/>
+    <line x1="430" y1="205" x2="430" y2="345"/>
+  </g>
+  <!-- Capsule Golden Ring -->
+  <rect x="330" y="345" width="140" height="15" rx="4" fill="url(#goldGrad)"/>
+
+  <!-- Body / Handle -->
+  <polygon points="350,360 450,360 435,500 365,500" fill="#09111c" stroke="url(#metalGrad)" stroke-width="3"/>
+  <line x1="400" y1="365" x2="400" y2="495" stroke="#fbbf24" stroke-width="2" stroke-opacity="0.6"/>
+
+  <!-- Base Connector & Audio Waveform Vectors -->
+  <rect x="375" y="500" width="50" height="25" fill="#0f1f33" stroke="#00f0ff" stroke-width="2"/>
+  <line x1="400" y1="525" x2="400" y2="580" stroke="#00f0ff" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Harmonic Axis Points -->
+  <circle cx="400" cy="580" r="6" fill="#fbbf24"/>
+  <circle cx="400" cy="360" r="5" fill="#00f0ff"/>
+
+  <!-- Mathematical Annotation -->
+  <g font-family="monospace" font-size="14" fill="#00f0ff" text-anchor="middle" letter-spacing="2">
+    <text x="400" y="660" fill="#fbbf24" font-weight="bold" font-size="28" letter-spacing="4">MICRÓFONO</text>
+    <text x="400" y="695" fill="#38bdf8" fill-opacity="0.7">[ VECTOR ACÚSTICO · FRECUENCIA RESONANTE ]</text>
+    <text x="400" y="720" fill="#00f0ff" fill-opacity="0.4" font-size="11">λ = c / f · POLAR CARDIOIDE</text>
+  </g>
 </svg>

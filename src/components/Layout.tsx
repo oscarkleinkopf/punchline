@@ -7,6 +7,7 @@ export function Layout() {
         <nav className="site-nav" aria-label="Principal">
           <NavLink to="/" className="site-nav__brand" end>
             Punch<span>line</span>
+            <span className="site-nav__brand-badge">Φ 1.618</span>
           </NavLink>
           <div className="site-nav__links">
             <NavLink to="/entrenar" className={({ isActive }) => (isActive ? 'active' : undefined)}>
