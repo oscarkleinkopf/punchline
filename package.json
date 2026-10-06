@@ -2,6 +2,7 @@
   "name": "punchline",
   "private": true,
   "version": "0.1.0",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "node -e \"require('fs').copyFileSync('index.dev.html', 'index.html')\" && vite",
