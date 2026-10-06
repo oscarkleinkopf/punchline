@@ -70,3 +70,7 @@ Micrófono y grabación requieren HTTPS (GitHub Pages ya lo ofrece) o `localhost
 
 - Los beats incluidos son loops sintéticos de placeholder; sustituye los WAV en `public/assets/beats/` y actualiza `src/utils/beats.ts`.
 - Fuera del MVP: STT / análisis de rimas, export a Reels/TikTok, cuentas de usuario.
+
+## Licencia
+
+Código bajo licencia [MIT](LICENSE). Copyright (c) 2026 Osias Kleinkopf.
