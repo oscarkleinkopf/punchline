@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" fill="none">
+  <defs>
+    <!-- Background Gradients -->
+    <radialGradient id="bgGrad" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#0c1424"/>
+      <stop offset="45%" stop-color="#070a12"/>
+      <stop offset="100%" stop-color="#040508"/>
+    </radialGradient>
+    <radialGradient id="cyanAura" cx="50%" cy="40%" r="40%">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.25"/>
+      <stop offset="40%" stop-color="#00f0ff" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#00f0ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="goldAura" cx="50%" cy="50%" r="45%">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.18"/>
+      <stop offset="50%" stop-color="#fbbf24" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#fbbf24" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="stageFloor" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.2"/>
+      <stop offset="30%" stop-color="#0a1220" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#04060a" stop-opacity="0.95"/>
+    </linearGradient>
+
+    <!-- Mathematical Grid Pattern -->
+    <pattern id="mathGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#00f0ff" stroke-width="0.75" stroke-opacity="0.07"/>
+      <circle cx="0" cy="0" r="1.5" fill="#00f0ff" fill-opacity="0.18"/>
+    </pattern>
+
+    <pattern id="majorGrid" width="200" height="200" patternUnits="userSpaceOnUse">
+      <path d="M 200 0 L 0 0 0 200" fill="none" stroke="#00f0ff" stroke-width="1.2" stroke-opacity="0.12"/>
+      <path d="M 10 0 L 0 0 0 10 M 190 0 L 200 0 200 10 M 0 190 L 0 200 10 200 M 190 200 L 200 200 200 190" fill="none" stroke="#fbbf24" stroke-width="1.2" stroke-opacity="0.25"/>
+    </pattern>
+  </defs>
+
+  <!-- Deep Obsidian Canvas -->
+  <rect width="1600" height="900" fill="url(#bgGrad)"/>
+  <rect width="1600" height="900" fill="url(#mathGrid)"/>
+  <rect width="1600" height="900" fill="url(#majorGrid)"/>
+
+  <!-- Glowing Field -->
+  <rect width="1600" height="900" fill="url(#cyanAura)"/>
+  <rect width="1600" height="900" fill="url(#goldAura)"/>
+
+  <!-- Perspective Floor (Plano Cartesiano Isométrico) -->
+  <g opacity="0.65">
+    <!-- Grid vanishing lines -->
+    <path d="M 800 480 L -200 900 M 800 480 L 100 900 M 800 480 L 400 900 M 800 480 L 600 900 M 800 480 L 800 900 M 800 480 L 1000 900 M 800 480 L 1200 900 M 800 480 L 1500 900 M 800 480 L 1800 900" stroke="#00f0ff" stroke-width="1" stroke-opacity="0.25"/>
+    <!-- Transverse isometric arcs -->
+    <ellipse cx="800" cy="540" rx="350" ry="60" fill="none" stroke="#00f0ff" stroke-width="1.5" stroke-opacity="0.3" stroke-dasharray="8 6"/>
+    <ellipse cx="800" cy="620" rx="550" ry="95" fill="none" stroke="#00f0ff" stroke-width="1.5" stroke-opacity="0.35"/>
+    <ellipse cx="800" cy="720" rx="780" ry="140" fill="none" stroke="#fbbf24" stroke-width="1.8" stroke-opacity="0.4"/>
+    <ellipse cx="800" cy="850" rx="1050" ry="190" fill="none" stroke="#00f0ff" stroke-width="2" stroke-opacity="0.45"/>
+  </g>
+
+  <!-- Stage Platform Solid with Floor Gradient -->
+  <polygon points="400,660 1200,660 1350,780 250,780" fill="url(#stageFloor)"/>
+  <polygon points="400,660 1200,660 1350,780 250,780" fill="none" stroke="#00f0ff" stroke-width="2" stroke-opacity="0.5"/>
+  <line x1="250" y1="780" x2="1350" y2="780" stroke="#00f0ff" stroke-width="3" stroke-opacity="0.8"/>
+
+  <!-- Cartesian Coordinate Center Crosshair -->
+  <g transform="translate(800, 480)">
+    <!-- X & Y Axes -->
+    <line x1="-700" y1="0" x2="700" y2="0" stroke="#00f0ff" stroke-width="1" stroke-opacity="0.25" stroke-dasharray="12 6"/>
+    <line x1="0" y1="-420" x2="0" y2="280" stroke="#00f0ff" stroke-width="1" stroke-opacity="0.25" stroke-dasharray="12 6"/>
+
+    <!-- Ticks on X axis -->
+    <path d="M -500 -6 L -500 6 M -300 -6 L -300 6 M -100 -6 L -100 6 M 100 -6 L 100 6 M 300 -6 L 300 6 M 500 -6 L 500 6" stroke="#00f0ff" stroke-width="1.5" stroke-opacity="0.5"/>
+    <!-- Ticks on Y axis -->
+    <path d="M -6 -300 L 6 -300 M -6 -200 L 6 -200 M -6 -100 L 6 -100 M -6 100 L 6 100" stroke="#00f0ff" stroke-width="1.5" stroke-opacity="0.5"/>
+  </g>
+
+  <!-- Geometría Sagrada / Anillos Polares y Compás Universal -->
+  <g transform="translate(800, 380)">
+    <!-- Concentric radar circles with degree graduations -->
+    <circle r="360" fill="none" stroke="#00f0ff" stroke-width="1" stroke-opacity="0.18"/>
+    <circle r="320" fill="none" stroke="#00f0ff" stroke-width="0.75" stroke-opacity="0.12" stroke-dasharray="4 8"/>
+    <circle r="260" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-opacity="0.25"/>
+    <circle r="200" fill="none" stroke="#00f0ff" stroke-width="1.2" stroke-opacity="0.3" stroke-dasharray="16 8"/>
+    <circle r="140" fill="none" stroke="#fbbf24" stroke-width="1" stroke-opacity="0.35"/>
+    <circle r="80" fill="none" stroke="#00f0ff" stroke-width="2" stroke-opacity="0.5"/>
+    <circle r="15" fill="#00f0ff" fill-opacity="0.8"/>
+    <circle r="4" fill="#ffffff"/>
+
+    <!-- Radial angle rays (0°, 30°, 45°, 60°, 90°, 120°, 135°, 150°, etc.) -->
+    <g stroke="#00f0ff" stroke-width="0.8" stroke-opacity="0.2">
+      <line x1="-360" y1="0" x2="360" y2="0"/>
+      <line x1="0" y1="-360" x2="0" y2="360"/>
+      <line x1="-254" y1="-254" x2="254" y2="254"/>
+      <line x1="-254" y1="254" x2="254" y2="-254"/>
+      <line x1="-311" y1="-180" x2="311" y2="180"/>
+      <line x1="-180" y1="-311" x2="180" y2="311"/>
+      <line x1="-311" y1="180" x2="311" y2="-180"/>
+      <line x1="-180" y1="311" x2="180" y2="-311"/>
+    </g>
+
+    <!-- Triangular & Hexagonal Inscribed Symmetry -->
+    <polygon points="0,-260 225,130 -225,130" fill="none" stroke="#00f0ff" stroke-width="1.2" stroke-opacity="0.2"/>
+    <polygon points="0,260 225,-130 -225,-130" fill="none" stroke="#00f0ff" stroke-width="1.2" stroke-opacity="0.2"/>
+
+    <!-- The Golden Spiral (Fibonacci) inscribed in the focal aura -->
+    <path d="M 0 0 
+             A 15 15 0 0 1 15 15 
+             A 25 25 0 0 1 -10 40 
+             A 40 40 0 0 1 -50 0 
+             A 65 65 0 0 1 15 -65 
+             A 105 105 0 0 1 120 40 
+             A 170 170 0 0 1 -50 210 
+             A 275 275 0 0 1 -325 -65 
+             A 445 445 0 0 1 120 -510" 
+          fill="none" stroke="#fbbf24" stroke-width="2.5" stroke-opacity="0.6" stroke-linecap="round"/>
+
+    <!-- Teseracto / 4D Hypercube Wireframe Central Projection -->
+    <g stroke="#00f0ff" stroke-width="1.8" stroke-opacity="0.55" fill="none">
+      <!-- Outer Cube -->
+      <polygon points="-90,-90 90,-90 90,90 -90,90"/>
+      <!-- Inner Cube -->
+      <polygon points="-45,-45 45,-45 45,45 -45,45" stroke="#fbbf24" stroke-opacity="0.75"/>
+      <!-- 4D Connecting vertices -->
+      <line x1="-90" y1="-90" x2="-45" y2="-45"/>
+      <line x1="90" y1="-90" x2="45" y2="-45"/>
+      <line x1="90" y1="90" x2="45" y2="45"/>
+      <line x1="-90" y1="90" x2="-45" y2="45"/>
+    </g>
+  </g>
+
+  <!-- Acoustic Vector Rays Converging on Stage (Foco del Micrófono) -->
+  <g stroke-linecap="round">
+    <line x1="0" y1="150" x2="800" y2="480" stroke="#00f0ff" stroke-width="1.5" stroke-opacity="0.2"/>
+    <line x1="1600" y1="150" x2="800" y2="480" stroke="#00f0ff" stroke-width="1.5" stroke-opacity="0.2"/>
+    <line x1="100" y1="0" x2="800" y2="480" stroke="#fbbf24" stroke-width="1.5" stroke-opacity="0.15"/>
+    <line x1="1500" y1="0" x2="800" y2="480" stroke="#fbbf24" stroke-width="1.5" stroke-opacity="0.15"/>
+    <line x1="400" y1="0" x2="800" y2="480" stroke="#00f0ff" stroke-width="2" stroke-opacity="0.25"/>
+    <line x1="1200" y1="0" x2="800" y2="480" stroke="#00f0ff" stroke-width="2" stroke-opacity="0.25"/>
+  </g>
+
+  <!-- Mathematical Axiom Formula Annotations (Blueprint Text) -->
+  <g font-family="monospace" font-size="12" fill="#00f0ff" fill-opacity="0.35" letter-spacing="2">
+    <text x="70" y="80">[ POSTULADO I : f(x) = ∑ RIMA(t) · e^(iωt) ]</text>
+    <text x="70" y="110">[ COORDENADA : ∇ × FLOW = 0 · CONSERVATIVO ]</text>
+    <text x="70" y="140">[ PROPORCIÓN ÁUREA : Φ = (1 + √5) / 2 ≈ 1.618 ]</text>
+
+    <text x="1140" y="80">[ SISTEMA MÉTRICO CARTESIANO // 4/4 ]</text>
+    <text x="1140" y="110">[ DIMENSIÓN LÍRICA : ℝ⁴ ➔ CONSCIENCIA ]</text>
+    <text x="1140" y="140">[ Q.E.D. : DEMOSTRATIO PER PUNCHLINE ]</text>
+
+    <text x="740" y="875" fill="#fbbf24" fill-opacity="0.6">[ VÉRTICE CENTRAL DE IMPACTO ]</text>
+  </g>
+</svg>
